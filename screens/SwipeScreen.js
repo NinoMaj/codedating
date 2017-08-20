@@ -12,7 +12,7 @@ import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 
-export default class HomeScreen extends React.Component {
+export default class SwipeScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
@@ -42,10 +42,10 @@ export default class HomeScreen extends React.Component {
             <View
               style={[
                 styles.codeHighlightContainer,
-                styles.homeScreenFilename,
+                styles.SwipeScreenFilename,
               ]}>
               <MonoText style={styles.codeHighlightText}>
-                screens/HomeScreen.js
+                screens/SwipeScreen.js
               </MonoText>
             </View>
 
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginHorizontal: 50,
   },
-  homeScreenFilename: {
+  SwipeScreenFilename: {
     marginVertical: 7,
   },
   codeHighlightText: {

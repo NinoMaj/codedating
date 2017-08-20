@@ -5,20 +5,24 @@ import { TabNavigator, TabBarBottom } from 'react-navigation';
 
 import Colors from '../constants/Colors';
 
-import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import SwipeScreen from '../screens/SwipeScreen';
+import AppliedScreen from '../screens/AppliedScreen';
+import PostedScreen from '../screens/PostedScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 
 export default TabNavigator(
   {
-    Home: {
-      screen: HomeScreen,
+    Swipe: {
+      screen: SwipeScreen,
     },
-    Links: {
-      screen: LinksScreen,
+    Applied: {
+      screen: AppliedScreen,
     },
-    Settings: {
-      screen: SettingsScreen,
+    Posted: {
+      screen: PostedScreen,
+    },
+    Profile: {
+      screen: ProfileScreen,
     },
   },
   {
@@ -27,20 +31,25 @@ export default TabNavigator(
         const { routeName } = navigation.state;
         let iconName;
         switch (routeName) {
-          case 'Home':
+          case 'Swipe':
             iconName = Platform.OS === 'ios'
-              ? `ios-information-circle${focused ? '' : '-outline'}`
-              : 'md-information-circle';
+              ? `ios-finger-print${focused ? '' : '-outline'}`
+              : 'md-finger-print';
             break;
-          case 'Links':
+          case 'Applied':
             iconName = Platform.OS === 'ios'
-              ? `ios-link${focused ? '' : '-outline'}`
-              : 'md-link';
+              ? `ios-checkmark-outline${focused ? '' : '-outline'}`
+              : 'md-checkmark';
             break;
-          case 'Settings':
+          case 'Posted':
             iconName = Platform.OS === 'ios'
-              ? `ios-options${focused ? '' : '-outline'}`
-              : 'md-options';
+              ? `ios-list${focused ? '' : '-outline'}`
+              : 'md-list';
+            break;
+          case 'Profile':
+            iconName = Platform.OS === 'ios'
+              ? `ios-person${focused ? '' : '-outline'}`
+              : 'md-person';
         }
         return (
           <Ionicons

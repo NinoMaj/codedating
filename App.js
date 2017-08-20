@@ -3,6 +3,7 @@ import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
 import RootNavigation from './navigation/RootNavigation';
+import firebase from 'firebase';
 
 export default class App extends React.Component {
   state = {
@@ -11,6 +12,17 @@ export default class App extends React.Component {
 
   componentWillMount() {
     this._loadAssetsAsync();
+
+    // Initialize Firebase
+    const config = {
+      apiKey: 'secret',
+      authDomain: 'codedating-ec7fa.firebaseapp.com',
+      databaseURL: 'https://codedating-ec7fa.firebaseio.com',
+      projectId: 'codedating-ec7fa',
+      storageBucket: 'codedating-ec7fa.appspot.com',
+      messagingSenderId: '178465429148',
+    };
+    firebase.initializeApp(config);
   }
 
   render() {
