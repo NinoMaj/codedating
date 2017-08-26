@@ -21,13 +21,17 @@ class SwipeScreen extends React.Component {
       <Card title={project.title}>
         <View style={{ height: 300 }}>
           <Text>{project.title}</Text>
+          <Text>Description: {project.description}</Text>
+          <Text>Posted by: {project.postedBy}</Text>
+          <Text>Created on: {project.createdDate}</Text>
+          <Text>Tech required: {project.techRequired}</Text>
+          <Text>Skills required: {project.skillsRequired}</Text>
         </View>
         <View style={styles.detailWrapper}>
-          <Text>{project.description}</Text>
-          <Text>{project.postedBy}</Text>
-          <Text>{project.createdDate}</Text>
-          <Text>{project.techRequired}</Text>
-          <Text>{project.skillsRequired}</Text>
+          <Text>Swipe left</Text>
+          <Icon name="thumb_down" />
+          <Icon name="thumb_up" />
+          <Text>Swipe right</Text>
         </View>
       </Card>
     );
@@ -39,7 +43,7 @@ class SwipeScreen extends React.Component {
         <Button
           title="Go To Applied"
           large
-          icon={{ name: 'checkmark' }}
+          icon={{ name: 'done' }}
           backgroundColor="#03A9F4"
           onPress={() => this.props.navigation.navigate('Applied')}
         />
@@ -58,7 +62,7 @@ class SwipeScreen extends React.Component {
           data={this.props.projects.data}
           renderCard={this.renderCard}
           renderNoMoreCards={this.renderNoMoreCards}
-          onSwipeRight={() => {console.log('Swiped right')}}
+          onSwipeRight={() => { console.log('Swiped right'); }}
           // onSwipeRight={project => this.props.likeProjectJob(project)} 
         />
       </View>
